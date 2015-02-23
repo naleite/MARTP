@@ -76,13 +76,6 @@ function start()
 
 	var pales=[paleC1,paleC2,paleC3,paleD1,paleD2,paleD3,paleG1,paleG2,paleG3];
 
-	//axeC.rotation.x=90*3.14159/180;
-	//helicoCorp.position.x=heli.position.x;
-	//helicoCorp.position.y=heli.position.y;
-	//helicoCorp.position.z=heli.position.z;
-	//heli.add(helicoCorp);
-
-	//heli.add(turbineD);
 
 	function run_pales_v(vitesse){
 		for(i=0;i<pales.length;i++){

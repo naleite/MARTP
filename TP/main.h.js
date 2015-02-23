@@ -251,11 +251,11 @@ function start(){
 
 		if (currentlyPressedKeys[67]) // (C) debug
 		{
-			// debug scene
-			//RC.scene.traverse(function(o){
-			//	console.log('object:'+o.name+'>'+o.id+'::'+o.type);
-			//});
-			//console.log('x:'+heli3.position.x+" y:"+heli3.position.y+" z:"+heli3.position.z);
+			//debug scene
+			RC.scene.traverse(function(o){
+				console.log('object:'+o.name+'>'+o.id+'::'+o.type);
+			});
+
 		}				
 		if (currentlyPressedKeys[68]) // (D) Right
 		{

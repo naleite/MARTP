@@ -18,15 +18,7 @@ requirejs(['ModulesLoaderV2.js'], function()
 ) ;
 
 function start(){
-	//	----------------------------------------------------------------------------
-	//	MAR 2014 - nav test
-	//	author(s) : Cozot, R. and Lamarche, F.
-	//	date : 11/16/2014
-	//	last : 11/25/2014
-	//	---------------------------------------------------------------------------- 			
-	//	global vars
-	//	----------------------------------------------------------------------------
-	//	keyPressed
+
 	var currentlyPressedKeys = {};
 	
 	// car Position
@@ -134,34 +126,17 @@ function start(){
 
 
 	//cameras fixes
-	var cameras=[]
-	//ajouter des cameras fixes
-	/*var camera1=new THREE.PerspectiveCamera(45, 1, 1, 10000);
-	camera1.position.x=-260;
-	camera1.position.z=50;
-	camera1.position.y=300;
-	camera1.rotation.x=-90.0*3.14159/180.0
-	camera1.rotation.z=180.0*3.14159/180.0
-	camera1.rotation.y=-15.0*3.14159/180.0
-	cameras[cameras.length]=camera1;*/
+	var cameras=[];
 
 	function addCamera(px,py,pz){
 		var camera=new THREE.PerspectiveCamera(90, 1, 1, 10000);
 		camera.position.x=px;
 		camera.position.y=py;
 		camera.position.z=pz;
-		//camera.rotation.x=rx*3.14159/180.0;
-		//camera.rotation.y=ry*3.14159/180.0;
-		//camera.rotation.z=rz*3.14159/180.0;
+
 		cameras[cameras.length]=camera;
 	}
 
-	/*addCamera(-260,300,100,-80,-15,180);//camera a p3
-	addCamera(80,240,100,0,80,90);//camera a p7
-	addCamera(80,0,150,75,0,0)//camera a p10
-	addCamera(240,-260,150,80,20,0);//camera a p16
-	addCamera(80,-40,150,0,0,0);//camera a p21
-	addCamera(-140,-280,150,0,0,0);//camera a p27*/
 
 	addCamera(-260,300,100);//camera a p3
 	addCamera(80,240,100);//camera a p7
@@ -190,15 +165,14 @@ function start(){
 			cameras[i].lookAt(car0.position);
 			RC.camera = cameras[i];
 
-			//console.log("Camera active: " + i + " " + cameras[i])
 		}
 	}
 
 	function choisirCamera(){
 		var activeNAV=NAV.findActive(car0.position.x,car0.position.y);
-		//console.log(activeNAV);
+
 		var nb=parseInt(activeNAV)+1;
-		//console.log("nb="+nb);
+
 		switch (nb){
 			case 1:
 			case 2:
@@ -206,18 +180,14 @@ function start(){
 			case 29:
 			case 30:
 				activeCamera(0);
-				//cameras[0].up=new THREE.Vector3(0,0,1);
-				//cameras[0].lookAt(car0.position);
-				//console.log("camera choisir: 0");
+
 				break;
 			case 4:
 			case 5:
 			case 6:
 			case 7:
 				activeCamera(1);
-				//cameras[1].up=new THREE.Vector3(0,0,1);
-				//cameras[1].lookAt(car0.position);
-				//console.log("camera choisir: 1");
+
 				break;
 
 			case 8:
@@ -225,8 +195,6 @@ function start(){
 			case 10:
 			case 11:
 				activeCamera(2);
-				//cameras[2].up=new THREE.Vector3(0,0,1);
-				//cameras[2].lookAt(car0.position);
 				break;
 			case 12:
 			case 13:
@@ -236,8 +204,6 @@ function start(){
 			case 17:
 			case 18:
 				activeCamera(3);
-				//cameras[3].up=new THREE.Vector3(0,0,1);
-				//cameras[3].lookAt(car0.position);
 				break;
 			case 19:
 			case 20:
@@ -267,7 +233,7 @@ function start(){
 
 	var text_timer = document.createElement('div');
 	text_timer.style.position = 'absolute';
-//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
+	//text2.style.zIndex = 1;    // if you still don't see the label, try uncommenting this
 	text_timer.style.width = 200;
 	text_timer.style.height = 50;
 	//text_timer.style.backgroundColor = "blue";
@@ -393,26 +359,17 @@ function start(){
 			vehicle.brake(100) ;
 		}
 
-		/*if (currentlyPressedKeys[80]) // (P) Changer le camera
-		{
 
-			activeCamera(indexCamera % cameras.length);
-			indexCamera++;
-			console.log("index:"+indexCamera);
-			console.log("active NAV:"+NAV.findActive(car0.position.x,car0.position.y))
-
-		}*/
 		if (currentlyPressedKeys[79]) // (O) Changer le camera
 		{
 			text_timer.innerHTML = "Time: "+clock.getElapsedTime();
 		}
 
-		if (currentlyPressedKeys[80]) // (R) Changer le camera
+		if (currentlyPressedKeys[80]) // (P) Changer le camera
 		{
-			//console.log("R presse");
-			//RC.camera=cameras[cameras.length-1];
+
 			changemode();
-			//console.log("camera mode:"+cameramode)
+
 
 
 		}

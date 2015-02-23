@@ -48,15 +48,6 @@ function start()
 	var dt = 0.05;
 	var dx = 1.0;
 
-	// Creates the vehicle (handled by physics)
-	/*var heli = new Helicopter(
-		{
-			position: new THREE.Vector3(CARx, CARy, CARz),
-			vPales: 0.05
-			//zAngle : CARtheta+Math.PI/2.0
-		}
-	) ;*/
-
 
 	var engine=new ParticleSystem.Engine_Class({
 		particlesCount:10000,

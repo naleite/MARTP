@@ -13,7 +13,7 @@ ModulesLoader.requireModules(['threejs/three.min.js', 'Physics.js', 'DebugHelper
 function Helicopter(configuration)
 {
 	if(!configuration.hasOwnProperty('position')) { configuration.position = new THREE.Vector3(0.0,0.0,0.0) ; }
-	if(!configuration.hasOwnProperty('mass')) { configuration.mass = 50 ; }
+	if(!configuration.hasOwnProperty('mass')) { configuration.mass = 300 ; }
 	if(!configuration.hasOwnProperty('xLength')) { configuration.xLength = 5 ; }
 	if(!configuration.hasOwnProperty('yLength')) { configuration.yLength = 2 ; }
 	if(!configuration.hasOwnProperty('zLength')) { configuration.zLength = 2 ; }
@@ -201,10 +201,10 @@ function Helicopter(configuration)
 		var newForce = this.force.clone();
 		this.acceleration = newForce.multiplyScalar(1/this.mass);
 
+		this.vPales=this.vPalesDefault+calcule_norm(this.acceleration);
 		//vitesse de pales
 
 		// Resets everything
-		//this.runPales();
 		this.reset() ;
 	} ;
 
@@ -212,6 +212,7 @@ function Helicopter(configuration)
 	function calcule_norm(vect){
 		var x=vect.x;
 		var y=vect.y;
+		//var z=vect.z;
 		var res=Math.sqrt(x*x+y*y);
 		return res;
 	}
@@ -220,25 +221,15 @@ function Helicopter(configuration)
 	//Q2
 	this.orient_heli = function() {
 
-		//heli.rotateOnAxis(vector_v, vitesse);
+
 		var x = this.speed.x;
 		var y = this.speed.y;
 
-			var angle = Math.atan2(y, x);
-			//if (angle <= 3.14 / 4 && angle >= -3.14 / 4) {
-			return angle;
+		var angle = Math.atan2(y, x);
 
-		/*}
-
-		else if(angle<-3.14/4){
-			return -3.14/4;
-		}
-		else if(angle>3.14/4){
-			return 3.14/4;
-		}*/
+		return angle;
 
 
-		//run_pales_v(vitesse);
 	};
 
 
@@ -248,11 +239,11 @@ function Helicopter(configuration)
 		var y=this.acceleration.y;
 
 
-			var angle=Math.atan2(y,x);
+		var angle=Math.atan2(y,x);
 
-			this.vPales+=calcule_norm(this.acceleration);
 
-			return angle;
+
+		return angle;
 
 
 
