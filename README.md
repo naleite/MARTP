@@ -11,6 +11,7 @@ Vous pouvez lancer index.html pour voir tous les TP rendus.
 - "z","s","d","q" pour conduire la voiture.
 
 ### TP de Helicopter
+- *Helicopter.js* -- Le prototype d'helico.
 - *main.h.js* -- Le javascript de l'helico avec particles(meme scene que la voiture).
 - *maraceH.html* -- Le html pour lancer l'helico.
 - *main.4.js* -- Le javascript de l'helico tout seul ( *marace10.4.html* ). 
